@@ -34,6 +34,7 @@ AI-powered financial management tool for small businesses with:
 3. **Run The App**:
    ```bash
    streamlit run app/main.py
+   streamlit run app/app.py
 
 ## 🚀 GCP Deployment
 

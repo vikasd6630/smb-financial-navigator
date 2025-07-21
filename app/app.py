@@ -13,7 +13,7 @@ vertexai.init(project=st.secrets["GCP_PROJECT_ID"], location="TODO_GCP_LOCATION"
 db = firestore.Client.from_service_account_json("service-account.json")
 
 # Initialize models
-gemini_model = genai.GenerativeModel('gemini-pro')
+gemini_model = genai.GenerativeModel('gemini-2.0-flash-lite')
 vertex_model = TextGenerationModel.from_pretrained("text-bison@001")
 
 # Page setup
