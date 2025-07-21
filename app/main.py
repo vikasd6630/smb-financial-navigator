@@ -1,7 +1,7 @@
 import streamlit as st
-from services.firestore import FirestoreClient
-from services.vertex_ai import VertexAI
-from utils.config import settings
+from app.services.firestore import FirestoreClient
+from app.services.vertex_ai import VertexAI
+from app.utils.config import settings
 
 # Initialize clients
 db = FirestoreClient()

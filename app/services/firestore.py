@@ -1,5 +1,5 @@
 from google.cloud import firestore
-from utils.config import settings
+from app.utils.config import settings
 
 
 class FirestoreClient:

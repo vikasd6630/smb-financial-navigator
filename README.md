@@ -45,6 +45,13 @@ AI-powered financial management tool for small businesses with:
 ### **1. Infrastructure Setup**
       
    ```bash
+   
+   UserWarning: Your application has authenticated using end user credentials from Google Cloud SDK without a quota project. You might receive a "quota exceeded" or "API not enabled" error. See the following page for troubleshooting:
+   
+   FIX :: export GOOGLE_APPLICATION_CREDENTIALS=service-account.json
+   
+   python -m app.main
+   
 # Enable required APIs
 gcloud services enable \
   firestore.googleapis.com \

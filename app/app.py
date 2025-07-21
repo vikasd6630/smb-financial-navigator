@@ -9,7 +9,7 @@ from datetime import datetime
 
 # Configuration
 genai.configure(api_key=st.secrets["GEMINI_API_KEY"])
-vertexai.init(project=st.secrets["GCP_PROJECT_ID"], location="us-central1")
+vertexai.init(project=st.secrets["GCP_PROJECT_ID"], location="TODO_GCP_LOCATION")
 db = firestore.Client.from_service_account_json("service-account.json")
 
 # Initialize models

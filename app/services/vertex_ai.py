@@ -1,6 +1,6 @@
 import vertexai
 from vertexai.language_models import TextGenerationModel
-from utils.config import settings
+from app.utils.config import settings
 
 vertexai.init(project=settings.GCP_PROJECT_ID, location=settings.GCP_LOCATION)
 
