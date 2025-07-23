@@ -6,10 +6,11 @@ import pandas as pd
 import vertexai
 from vertexai.preview.language_models import TextGenerationModel
 from datetime import datetime
+import os
 
 # Configuration
 genai.configure(api_key=st.secrets["GEMINI_API_KEY"])
-vertexai.init(project=st.secrets["GCP_PROJECT_ID"], location="TODO_GCP_LOCATION")
+vertexai.init(project=st.secrets["GCP_PROJECT_ID"], location="us-central1")
 db = firestore.Client.from_service_account_json("service-account.json")
 
 # Initialize models

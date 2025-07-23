@@ -2,19 +2,16 @@ FROM python:3.9-slim
 
 WORKDIR /app
 
-# Install gcloud CLI for ADC
-RUN apt-get update && \
-    apt-get install -y curl && \
-    curl -sSL https://sdk.cloud.google.com | bash && \
-    echo "source /root/google-cloud-sdk/path.bash.inc" >> /root/.bashrc
+# Copy requirements first (better caching)
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy app
 COPY . .
 
-# Install dependencies
-RUN pip install --no-cache-dir -r requirements.txt
+# Set environment variables
+ENV PORT 8080  # Cloud Run default port
+EXPOSE $PORT
 
-# Initialize gcloud (for service accounts in production)
-CMD ["/bin/bash", "-c", "source /root/google-cloud-sdk/path.bash.inc && \
-     gcloud auth activate-service-account --key-file=${GOOGLE_APPLICATION_CREDENTIALS} && \
-     streamlit run app/main.py --server.port=8080"]
+# Use shell form to expand PORT variable
+CMD streamlit run app/app.py --server.port=$PORT --server.address=0.0.0.0
